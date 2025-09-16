@@ -1,0 +1,57 @@
+ Interaction Log
+=========================
+
+User: I need to build a robust question generation system using a fine-tuned distilGPT2 model. It should generate high-quality MCQs and short answers efficiently.
+
+Copilot: To achieve this, you should preprocess and unify your datasets (RACE for MCQ, SQuAD for short-answer), then fine-tune distilGPT2 using LoRA for parameter efficiency. I can help you script the data preparation, training, and inference pipeline.
+
+---
+
+User: How do I preprocess and combine the datasets for training?
+
+Copilot: Sample 25,000 examples each from RACE and SQuAD, convert them to a unified JSONL format with fields for context, instruction, question, options (for MCQ), and answer. Combine and shuffle them to create your training file.
+
+---
+
+User: How do I set up the fine-tuning script?
+
+Copilot: Use HuggingFace Transformers and PEFT. Load distilGPT2, apply LoRA configuration, and tokenize your prompts. Train for 3.5 epochs with a small batch size to fit memory constraints. Save the fine-tuned model for inference.
+
+---
+
+User: How do I make the agent robust and user-friendly?
+
+Copilot: Implement a planner agent to extract key concepts and an executor agent to generate questions. Add few-shot examples to the prompt for diversity, and use retry/fallback logic to handle low-quality outputs. Clean up the CLI to show only user-facing results.
+
+---
+
+User: How do I evaluate the model’s outputs?
+
+Copilot: Use rule-based checks for MCQ structure and option uniqueness, and create a human evaluation sheet to rate relevance, correctness, fluency, MCQ quality, and short-answer quality. Summarize the results in your report.
+
+---
+
+User: How do I justify my model choice given memory and technical constraints?
+
+Copilot: DistilGPT2 is lightweight and efficient, ideal for limited resources. LoRA enables parameter-efficient fine-tuning, allowing you to specialize the model for question generation without exceeding memory limits.
+
+---
+
+User: Can you help me write the architecture and fine-tuning report?
+
+Copilot: Yes. I provided a detailed architecture document, explained the fine-tuning process, and mapped how each assignment criterion was fulfilled. I also helped format your reports and evaluation sheets for professional submission.
+
+---
+
+User: How do I push only the important files to GitHub?
+
+Copilot: Stage and commit src/agent.py, src/finetune.py, and src/make_enddataset.py. Exclude large datasets and temporary files. Add your reports and evaluation sheets for completeness.
+
+---
+
+User: Can you summarize the project pipeline in one paragraph?
+
+Copilot: The pipeline starts with user input, extracts concepts, generates questions using a fine-tuned, memory-efficient model, and presents results via CLI—enabling fast, reliable exam question creation from any study material.
+
+---
+
