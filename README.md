@@ -1,3 +1,3 @@
-Name: Vivek Yadav
-University: IIT Goa
+Name: Vivek Yadav<br>
+University: IIT Goa<br>
 Department: Computer Science
